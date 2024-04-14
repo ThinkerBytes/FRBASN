@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Home</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Take Attendance</h2>
+                        <p class="card-text">Click the button below to take attendance.</p>
+                        <a href="{{ url_for('take_attendance') }}" class="btn btn-primary">Take Attendance</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">New Period</h2>
+                        <p class="card-text">Click the button below to start a new attendance period.</p>
+                        <a href="{{ url_for('new_period') }}" class="btn btn-secondary">Start New Period</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Latest Attendance</h2>
+                        <table class="table">
+                            <thead>
+                                
+                            </thead>
+                            <tbody>
+                                {% for entry in latest_attendance %}
+                                <tr>
+                                    <td>{{ entry.Name }}</td>
+                                    <td>{{ entry.Time }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
